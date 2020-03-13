@@ -89,3 +89,15 @@ sns.lmplot("Age", "Survived", hue = "Pclass", data = titanic_df, palette = "wint
 generations = [10, 20, 30, 40, 50, 60, 70, 80]
 sns.lmplot("Age", "Survived", data = titanic_df, hue = "Pclass", palette = "winter", x_bins = generations)
 sns.lmplot("Age", "Survived", hue = "Sex", data = titanic_df, palette = "winter", x_bins = generations)
+titanic_df.head()
+cabin_df.head()
+titanic_df["deck"] = cabin_df
+titanic_df.head()
+cabin_df.loc[2]
+decks = ['A', 'B', 'C', 'D', 'E', 'F']
+sns.catplot("deck", data = titanic_df, color = "blue", kind = "count", order = decks)
+
+sns.catplot("deck", data = titanic_df, hue = "Survivor", kind = "count", order = decks)
+sns.catplot("deck", "Survived", data = titanic_df, hue = "Sex", kind = "bar", order = decks)
+sns.catplot("Survivor", data = titanic_df, hue = "Alone", kind = "count")
+sns.catplot("Alone", "Survived", data = titanic_df, hue = "Sex", kind = "bar")
